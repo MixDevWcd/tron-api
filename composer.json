@@ -1,5 +1,5 @@
 {
-    "name": "iexbase/tron-api",
+    "name": "mbmixdev/tron-api",
     "description": "A PHP API for interacting with Tron (Trx)",
     "license": "MIT",
     "type":   "library",
@@ -11,7 +11,7 @@
         }
     ],
     "keywords": [
-        "iexbase",
+        "mbmixdev",
         "tron-lib",
         "tron-php",
         "tron-api",
@@ -34,13 +34,13 @@
     },
     "autoload": {
         "psr-4": {
-            "IEXBase\\TronAPI\\": "src"
+            "MBmixdev\\TronAPI\\": "src"
         }
     },
 
     "autoload-dev": {
         "psr-4": {
-            "IEXBase\\TronAPI\\Test\\": "tests"
+            "MBmixdev\\TronAPI\\Test\\": "tests"
         }
     },
 
