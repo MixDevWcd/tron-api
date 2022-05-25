@@ -11,7 +11,7 @@
         }
     ],
     "keywords": [
-        "mbmixdev",
+        "iexbase",
         "tron-lib",
         "tron-php",
         "tron-api",
@@ -34,13 +34,13 @@
     },
     "autoload": {
         "psr-4": {
-            "MBmixdev\\TronAPI\\": "src"
+            "IEXBase\\TronAPI\\": "src"
         }
     },
 
     "autoload-dev": {
         "psr-4": {
-            "MBmixdev\\TronAPI\\Test\\": "tests"
+            "IEXBase\\TronAPI\\Test\\": "tests"
         }
     },
 
