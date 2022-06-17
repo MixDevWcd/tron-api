@@ -315,8 +315,8 @@ class TRC20Contract
                 [$this->_tron->address2HexString($to), $tokenAmount],
                 $feeLimitInSun,
                 $this->_tron->address2HexString($from),
-                $callValue = 0,
-                $userResourcePercent = 0
+                $callValue,
+                $userResourcePercent
             );
 
         $signedTransaction = $this->_tron->signTransaction($transfer);
