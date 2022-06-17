@@ -516,6 +516,21 @@ class Tron implements TronInterface
     }
 
     /**
+     * Query transaction fee based on id
+     *
+     * @param $transactionID
+     * @return array
+     * @throws TronException
+     */
+    public function getRawTransactionInfo(string $transactionID): array
+    {
+        return $this->manager->request('wallet/gettransactioninfobyid', [
+            'value' =>  $transactionID
+        ]);
+    }
+
+
+    /**
      * Query the list of transactions received by an address
      *
      * @param string $address

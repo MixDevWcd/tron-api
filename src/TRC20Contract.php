@@ -105,6 +105,22 @@ class TRC20Contract
     }
 
     /**
+     * @return int
+     */
+    public function getFeeLimit(): int
+    {
+        return $this->feeLimit;
+    }
+
+    /**
+     * @param int $feeLimit
+     */
+    public function setFeeLimit(int $feeLimit): void
+    {
+        $this->feeLimit = $feeLimit;
+    }
+
+    /**
      * Debug Info
      *
      * @return array
@@ -269,11 +285,13 @@ class TRC20Contract
      * @param string $to
      * @param string $amount
      * @param string|null $from
+     * @param int|null $callValue
+     * @param int|null $userResourcePercent
      * @return array
      * @throws TRC20Exception
      * @throws TronException
      */
-    public function transfer(string $to, string $amount, string $from = null): array
+    public function transfer(string $to, string $amount, string $from = null, $callValue = 0, $userResourcePercent = 0): array
     {
         if($from == null) {
             $from = $this->_tron->address['base58'];
@@ -296,7 +314,9 @@ class TRC20Contract
                 'transfer',
                 [$this->_tron->address2HexString($to), $tokenAmount],
                 $feeLimitInSun,
-                $this->_tron->address2HexString($from)
+                $this->_tron->address2HexString($from),
+                $callValue = 0,
+                $userResourcePercent = 0
             );
 
         $signedTransaction = $this->_tron->signTransaction($transfer);
