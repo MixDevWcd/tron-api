@@ -539,7 +539,8 @@ return $trc20;
                                             $contract,
                                             $function,
                                             $params = [],
-                                            $address = '410000000000000000000000000000000000000000')
+                                            $address = '410000000000000000000000000000000000000000',
+                                            $getFeeValue = false)
     {
         $func_abi = [];
         foreach($abi as $key =>$item) {
@@ -587,6 +588,14 @@ return $trc20;
             throw new TronException('No result field in response. Raw response:'.print_r($result,true));
         }
         if(isset($result['result']['result'])) {
+            if ($getFeeValue) {
+              if (!empty($result['energy_used'])) {
+                $feeValue = $result['energy_used'];
+               } else {
+                $feeValue = false;
+              }
+              return $feeValue;
+            }
             if(count($func_abi['outputs']) >= 0 && isset($result['constant_result'])) {
                 return $eth_abi->decodeParameters($func_abi, $result['constant_result'][0]);
             }
